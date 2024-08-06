@@ -7,7 +7,8 @@ editor: visual
 ```{r}
 library(tidyverse)
 library(palmerpenguins)
-
+data(package = 'palmerpenguins')
+penguins <- penguins
 ```
 
 ```{r}
@@ -32,6 +33,24 @@ dp_da <- D(expr2, name = "a")
 a <- 1.2
 eval(dp_da)
 ```
+
+```{r}
+penguins <- penguins
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) + 
+  labs(x = "Bill Length", y = "Bill Depth") +
+  geom_point() +
+  ggtitle("Bill Length and Depth")
+
+```
+
+```{r}
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
+  labs(x = "Species", y = "Flipper Length (mm)") +
+  geom_jitter() + 
+  ggtitle("Flipper Length By Species")
+```
+
+
 
 
 
